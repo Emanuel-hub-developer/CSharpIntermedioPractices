@@ -1,0 +1,6 @@
+@CreacionAPI_Rest_HostAddress = http://localhost:5075
+
+GET {{CreacionAPI_Rest_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
