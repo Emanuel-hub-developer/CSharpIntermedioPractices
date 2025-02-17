@@ -47,5 +47,6 @@ DELETE: /usuario/eliminar/{id} , esta como post pero realiza la eliminacion de u
 
 en esta demostracion se a eliminado el usuario con id 4 de la base de datos que es Alonso.
 
+--Hasta aqui ha llegado la documentacion, gracias por leer. :)) ---
 
 
