@@ -20,6 +20,7 @@ namespace API_Rest.Migrations
                     Nombre = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Correo = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     FechaDeNacimiento = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    
                 },
                 constraints: table =>
                 {
