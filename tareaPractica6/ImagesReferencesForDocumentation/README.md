@@ -17,21 +17,21 @@ Como se ve en la base de datos una vez registrado el usuario:
 
 POST: api/auth/login , es un login que pide como parametros el correo y la clave con las que el usuario se registro en api/auth/register 
 si inicia correctamente se le retorna un token con un tiempo de 30 min antes de su expiracion y un refresh token de 3min antes de su expiracion
-que fue lo que utilice para el testing, si ingresa incorrectamente se le envia un mensaje en pantalla que indica que las credenciales son invalidas.
+que fue lo que utilice para el testing, si ingresa incorrectamente se le envia un mensaje en pantalla que indica que las credenciales son invalidas:
 
 ![image alt](https://github.com/Emanuel-hub-developer/CSharpIntermedioPractices/blob/3eaacf4f825d6ca186e77bea04e9742bba4286f1/tareaPractica6/ImagesReferencesForDocumentation/loginDTO.png)
 
 POST: api/auth/refresh , permite refrescar el token ingresando como parametros el token expirado y el refresh token 
-que fue retornado cuando el usuario inició sesion en api/auth/login.
+que fue retornado cuando el usuario inició sesion en api/auth/login:
 
 ![image alt](https://github.com/Emanuel-hub-developer/CSharpIntermedioPractices/blob/3eaacf4f825d6ca186e77bea04e9742bba4286f1/tareaPractica6/ImagesReferencesForDocumentation/RefreshToken.png)
 
-Comprobacion en la base de datos en la tabla donde se refresca el token "HistorialRefreshTokens".
+Comprobacion en la base de datos en la tabla donde se refresca el token "HistorialRefreshTokens":
 ![image alt](https://github.com/Emanuel-hub-developer/CSharpIntermedioPractices/blob/3eaacf4f825d6ca186e77bea04e9742bba4286f1/tareaPractica6/ImagesReferencesForDocumentation/refreshTokenExampleDb.png)
 
 
 
-SE LE AGREGO DATANOTATTIONS A 4 ENTIDADES QUE FUERON 
+SE LE AGREGO DATANOTATTIONS A 4 ENTIDADES QUE FUERON:
 
 Usuario:
 
