@@ -14,6 +14,14 @@ namespace API_Rest.DB
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<RecordRefreshToken> RecordRefreshTokens { get; set; }
         public DbSet<HistorialRefreshToken> HistorialRefreshTokens { get; set; }
+        public DbSet<Proveedor> Proveedores { get; set; }
+
+        public DbSet<Categoria> Categorias { get; set; }
+
+        public DbSet<Producto> Productos { get; set; }
+
+
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

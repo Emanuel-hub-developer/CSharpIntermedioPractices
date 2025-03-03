@@ -4,6 +4,7 @@ using API_Rest.DB;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API_Rest.Migrations
 {
     [DbContext(typeof(API_RestContext))]
-    partial class API_RestContextModelSnapshot : ModelSnapshot
+    [Migration("20250303051941_AddingThreeNewTables")]
+    partial class AddingThreeNewTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,23 +24,6 @@ namespace API_Rest.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("API_Rest.Models.Categoria", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Nombre")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Categorias");
-                });
 
             modelBuilder.Entity("API_Rest.Models.HistorialRefreshToken", b =>
                 {
@@ -72,60 +58,6 @@ namespace API_Rest.Migrations
                     b.HasIndex("UsuarioId");
 
                     b.ToTable("HistorialRefreshTokens");
-                });
-
-            modelBuilder.Entity("API_Rest.Models.Producto", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Nombre")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal>("Precio")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("Stock")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("idCategoria")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("idProveedor")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("idCategoria");
-
-                    b.HasIndex("idProveedor");
-
-                    b.ToTable("Productos");
-                });
-
-            modelBuilder.Entity("API_Rest.Models.Proveedor", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Contacto")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Nombre")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Proveedores");
                 });
 
             modelBuilder.Entity("API_Rest.Models.RecordRefreshToken", b =>
@@ -205,21 +137,6 @@ namespace API_Rest.Migrations
                         .IsRequired();
 
                     b.Navigation("Usuario");
-                });
-
-            modelBuilder.Entity("API_Rest.Models.Producto", b =>
-                {
-                    b.HasOne("API_Rest.Models.Categoria", "Categoria")
-                        .WithMany()
-                        .HasForeignKey("idCategoria");
-
-                    b.HasOne("API_Rest.Models.Proveedor", "Proveedor")
-                        .WithMany()
-                        .HasForeignKey("idProveedor");
-
-                    b.Navigation("Categoria");
-
-                    b.Navigation("Proveedor");
                 });
 
             modelBuilder.Entity("API_Rest.Models.RecordRefreshToken", b =>
