@@ -18,14 +18,13 @@ GET: api/productos/cantidadTotal , obtiene la cantidad total de productos regist
 
 ![image alt](https://github.com/Emanuel-hub-developer/CSharpIntermedioPractices/blob/7a6474bc1e32fd25dc3640fc94f2554e1fb9710c/tareaPractica7/ImagesReferencesForDocumentation/productoCantidadTotal.png)
 
-GET: api/productos/categoriaEspecifica , obtiene los productos de una categoria especifica que es ingresada teclado de la base datos:
+GET: api/productos/categoriaEspecifica , obtiene los productos de una categoria especifica de la base datos que es ingresada teclado:
 
 ![image alt](https://github.com/Emanuel-hub-developer/CSharpIntermedioPractices/blob/7a6474bc1e32fd25dc3640fc94f2554e1fb9710c/tareaPractica7/ImagesReferencesForDocumentation/productoCategoriaEspecifica.png)
 
-GET: api/productos/proveedorEspecifico , obtiene proveedores especificados que son ingresados por teclado de la base de datos:
+GET: api/productos/proveedorEspecifico , obtiene proveedores especificados de la base de datos que son ingresados por teclado:
 
 ![image alt](https://github.com/Emanuel-hub-developer/CSharpIntermedioPractices/blob/7a6474bc1e32fd25dc3640fc94f2554e1fb9710c/tareaPractica7/ImagesReferencesForDocumentation/productoProveedorEspecifico.png)
-
 
 
 ----------------------------FIN DOCUMENTACION----------------------------------------------------------------------
