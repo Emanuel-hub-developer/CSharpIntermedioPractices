@@ -18,11 +18,11 @@ POST: api/crearCategoria , permite crear una categoria:
 
 ![image alt](https://github.com/Emanuel-hub-developer/CSharpIntermedioPractices/blob/55b7bd68ee0a972d5a56d9b07d51eda22b47b16e/tareaPractica7/ImagesReferencesForDocumentation/categoriaCrear.png)
 
-PUT: api/actualizarCategoria/{id} permite actualizar una categoria:
+PUT: api/actualizarCategoria/{id} permite actualizar una categoria mediante el id:
 
 ![image alt](https://github.com/Emanuel-hub-developer/CSharpIntermedioPractices/blob/55b7bd68ee0a972d5a56d9b07d51eda22b47b16e/tareaPractica7/ImagesReferencesForDocumentation/categoriaUpdate.png)
 
-DELETE:  api/eliminarCategoria/{id} , elimina una categoria:
+DELETE:  api/eliminarCategoria/{id} , elimina una categoria mediante el id:
 
 ![image alt](
 https://github.com/Emanuel-hub-developer/CSharpIntermedioPractices/blob/55b7bd68ee0a972d5a56d9b07d51eda22b47b16e/tareaPractica7/ImagesReferencesForDocumentation/categoriaDelete.png)
@@ -43,7 +43,7 @@ PUT: api/actualizarProducto , permite actualizar un producto:
 ![image alt](
 https://github.com/Emanuel-hub-developer/CSharpIntermedioPractices/blob/55b7bd68ee0a972d5a56d9b07d51eda22b47b16e/tareaPractica7/ImagesReferencesForDocumentation/productoUpdate.png)
 
-DELETE:  api/eliminarProducto/{id} , elimina un producto:
+DELETE:  api/eliminarProducto/{id} , elimina un producto mediante el id:
 ![image alt](https://github.com/Emanuel-hub-developer/CSharpIntermedioPractices/blob/55b7bd68ee0a972d5a56d9b07d51eda22b47b16e/tareaPractica7/ImagesReferencesForDocumentation/productoDelete.png)
 
 GET: api/productos/estadisticas , obtiene el precio mas alto, el precio mas bajo, la suma total del precio de todos los productos y el promedio registrado
@@ -74,11 +74,11 @@ POST: api/crearProveedor, permite crear un proveedor:
 
 ![image alt](https://github.com/Emanuel-hub-developer/CSharpIntermedioPractices/blob/55b7bd68ee0a972d5a56d9b07d51eda22b47b16e/tareaPractica7/ImagesReferencesForDocumentation/proveedorCreate.png)
 
-PUT: api/actualizarProveedor/{id} permite actualizar un proveedor:
+PUT: api/actualizarProveedor/{id} permite actualizar un proveedor mediante el id:
 
 ![image alt](https://github.com/Emanuel-hub-developer/CSharpIntermedioPractices/blob/55b7bd68ee0a972d5a56d9b07d51eda22b47b16e/tareaPractica7/ImagesReferencesForDocumentation/proveedorUpdate.png)
 
-DELETE:  api/eliminarProveedor/{id} , elimina un proveedor:
+DELETE:  api/eliminarProveedor/{id} , elimina un proveedor mediante el id:
 
 ![image alt](https://github.com/Emanuel-hub-developer/CSharpIntermedioPractices/blob/55b7bd68ee0a972d5a56d9b07d51eda22b47b16e/tareaPractica7/ImagesReferencesForDocumentation/proveedorDelete.png)
 
