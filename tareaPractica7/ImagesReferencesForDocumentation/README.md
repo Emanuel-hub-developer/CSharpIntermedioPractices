@@ -8,7 +8,7 @@ DESCRIPCION DE LOS METODOS HTTP DE LAS NUEVAS ENTIDADES AGREGADAS:
 
 ![image alt](https://github.com/Emanuel-hub-developer/CSharpIntermedioPractices/blob/ebcfb8768653c944087f3da9a531170a91a7c5b9/tareaPractica7/ImagesReferencesForDocumentation/swaggerProductos.png)
 
-#CATEGORIA:
+#CATEGORIA CRUD:
 
 GET: api/obtenerCategorias, obtiene todas las categorias registradas en la base de datos:
 
@@ -27,7 +27,7 @@ DELETE:  api/eliminarCategoria/{id} , elimina una categoria:
 ![image alt](
 https://github.com/Emanuel-hub-developer/CSharpIntermedioPractices/blob/55b7bd68ee0a972d5a56d9b07d51eda22b47b16e/tareaPractica7/ImagesReferencesForDocumentation/categoriaDelete.png)
 
-#PRODUCTO: 
+#PRODUCTO CRUD: 
 
 GET: api/obtenerProductos, obtiene todos los productos registrados en la base de datos:
 
@@ -64,7 +64,7 @@ GET: api/productos/proveedorEspecifico , obtiene proveedores especificados de la
 
 ![image alt](https://github.com/Emanuel-hub-developer/CSharpIntermedioPractices/blob/7a6474bc1e32fd25dc3640fc94f2554e1fb9710c/tareaPractica7/ImagesReferencesForDocumentation/productoProveedorEspecifico.png)
 
-#PROVEEDOR:
+#PROVEEDOR CRUD:
 
 GET: api/obtenerProveedores, obtiene todos los proveedores registrados en la base de datos:
 
