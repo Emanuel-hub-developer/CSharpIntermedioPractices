@@ -2,6 +2,7 @@
 using API_Rest.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
 namespace API_Rest.Controllers
@@ -15,6 +16,106 @@ namespace API_Rest.Controllers
         public ProductoController(API_RestContext DbAPIRestContext)
         {
             _DbAPIRestContext = DbAPIRestContext;
+        }
+
+        [HttpGet]
+        [Route("obtenerProductos")]
+        public IEnumerable<Models.Producto> GetProductos()
+        {
+            return _DbAPIRestContext.Productos.ToList();
+        }
+
+
+        [HttpPost]
+        [Route("crearProducto")]
+        public IActionResult CrearProducto([FromBody] DTOs.ProductoDTO nuevoProducto)
+        {
+            if (nuevoProducto == null)
+            {
+                return BadRequest("El producto no puede ser nulo.");
+            }
+
+            var productoEntidad = new Models.Producto
+            {
+                Nombre = nuevoProducto.Nombre,
+                Precio = nuevoProducto.Precio,
+                Stock = nuevoProducto.Stock,
+                idProveedor = nuevoProducto.IdProveedor,
+                idCategoria = nuevoProducto.IdCategoria
+            };
+
+            
+            _DbAPIRestContext.Productos.Add(productoEntidad);
+
+            // Guardar los cambios en la base de datos
+            _DbAPIRestContext.SaveChanges();
+
+            // Devolver una respuesta exitosa
+            return CreatedAtAction(nameof(CrearProducto), new { id = productoEntidad.Id }, productoEntidad);
+        }
+
+        [HttpPut]
+        [Route("actualizarProducto")]
+        public IActionResult ActualizarProducto(int id, [FromBody] DTOs.ProductoDTO productoActualizado)
+        {
+            if (productoActualizado == null)
+            {
+                return BadRequest("Los datos del producto no pueden ser nulos.");
+            }
+
+            // Buscar el producto por ID
+            var productoExistente = _DbAPIRestContext.Productos.Find(id);
+
+            if (productoExistente == null)
+            {
+                // Si no se encuentra el usuario, devolver un error 404
+                return NotFound("producto no encontrado.");
+            }
+
+            // Actualizar los datos del usuario
+            productoExistente.Nombre = productoActualizado.Nombre;
+            productoExistente.Precio = productoActualizado.Precio;
+            productoExistente.Stock = productoActualizado.Stock;
+            productoExistente.idCategoria = productoActualizado.IdCategoria;
+            productoExistente.idProveedor = productoActualizado.IdProveedor;
+
+
+            // Guardar los cambios en la base de datos
+            _DbAPIRestContext.SaveChanges();
+
+            // Devolver una respuesta exitosa
+            return Ok(new
+            {
+                productoExistente.Id,
+                productoExistente.Nombre,
+                productoExistente.Precio,
+                productoExistente.Stock,
+                productoExistente.idCategoria,
+                productoExistente.idProveedor
+            });
+        }
+
+
+        [HttpDelete("eliminarProducto/{id}")]
+        public IActionResult EliminarProducto(int id)
+        {
+            
+            var producto = _DbAPIRestContext.Productos.FirstOrDefault(u => u.Id == id);
+
+            if (producto == null)
+            {
+                
+                return NotFound(new { success = false, message = "producto no encontrado." });
+            }
+
+            // Eliminar el producto
+            _DbAPIRestContext.Productos.Remove(producto);
+
+            // Guardar los cambios en la base de datos
+            _DbAPIRestContext.SaveChanges();
+
+            // Devolver una respuesta exitosa
+            return Ok(new { success = true, message = "Producto eliminado", result = producto });
         }
 
         [HttpGet]

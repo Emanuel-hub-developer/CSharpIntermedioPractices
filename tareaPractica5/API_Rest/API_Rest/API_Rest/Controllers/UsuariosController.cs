@@ -110,7 +110,7 @@ namespace API_Rest.Controllers
             return Ok(usuarioExistente);
         }
 
-        [HttpPost]
+        [HttpDelete]
         [Route("eliminar/{id}")]
         public IActionResult EliminarUsuario(int id)
         {
