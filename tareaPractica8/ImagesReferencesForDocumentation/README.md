@@ -6,7 +6,7 @@ Para poder ver los cambios ir a la tarea 5: [Tarea5](https://github.com/Emanuel-
 
 DESCRIPCION DE LOS METODOS HTTP REFACTORIZO Y EL RECIEN AGREGADO:
 
-METODO HTTP MODIFICADO: 
+METODO HTTP REFACTORIZADO: 
 
 POST: api/auth/register , se refactorizo para que ahora tenga una llamada asincrona que contiene una nueva funcionalidad que es agregar el usuario registrado 
 en el archivo de texto llamado "historialLog.txt" que es serializado a un archivo JSON:
@@ -18,4 +18,4 @@ GET: /api/obtenerUsuariosDelJson , obtiene los usuarios que fueron registrados e
 ![image alt](https://github.com/Emanuel-hub-developer/CSharpIntermedioPractices/blob/925952c6c54f7ed6ad0aab3b90e780813b6eabd3/tareaPractica8/ImagesReferencesForDocumentation/getDeLaAPIWithJsonDocument.png)
 
 
-------------------------------FIN DOCUMENTACION--------------------------------------------------------------------------------------------------------
+------------------------------FIN DOCUMENTACION--------------------------------------------------------------------------------
