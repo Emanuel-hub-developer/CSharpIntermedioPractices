@@ -10,6 +10,8 @@ using API_Rest.Models;
 using Microsoft.IdentityModel.Tokens;
 using System.Security;
 using System.IdentityModel.Tokens.Jwt;
+using API_Rest.Files;
+using Microsoft.AspNetCore.Http.HttpResults;
 
 namespace API_Rest.Controllers
 {
@@ -21,10 +23,12 @@ namespace API_Rest.Controllers
     {
         private readonly API_RestContext _dbAPIRestContext;
         private readonly Utilities _utilities;
-        
+        private readonly UsuarioLog _usuarioLog;
+
         public AccessController(API_RestContext dbAPIRestContext, Utilities utilidades)
         {
             _dbAPIRestContext = dbAPIRestContext;
+            _usuarioLog = new UsuarioLog();
             _utilities = utilidades;
 
         }
@@ -41,17 +45,34 @@ namespace API_Rest.Controllers
                 Clave = _utilities.encriptarSHA256(objeto.Clave)
             };
 
-            await _dbAPIRestContext.Usuarios.AddAsync(modeloUsuario);
-            await _dbAPIRestContext.SaveChangesAsync();
+           await _dbAPIRestContext.Usuarios.AddAsync(modeloUsuario);
+           var result =  await _dbAPIRestContext.SaveChangesAsync();
 
-            if (modeloUsuario.Id != 0)
+            if (result > 0)
             {
-                return StatusCode(StatusCodes.Status200OK, new { isSuccess = true });
+                
+                var usuarioDTO = new UsuarioDTO
+                {
+                    Nombre = objeto.Nombre,
+                    FechaDeNacimiento = objeto.FechaDeNacimiento,
+                    Correo = objeto.Correo,
+                    Clave = objeto.Clave 
+                };
 
+                var jsonResult = await _usuarioLog.CrearRegistroUsersJson(usuarioDTO);
+
+                if (jsonResult is ObjectResult objectResult && objectResult.StatusCode != 200)
+                {
+                    return StatusCode(StatusCodes.Status500InternalServerError, new { isSuccess = false, message = "Usuario guardado en la base de datos, pero hubo un problema al guardar en el historial." });
+                }
+
+         
+                return StatusCode(StatusCodes.Status200OK, new { isSuccess = true, message = "Usuario registrado correctamente en la base de datos y en el historial." });
             }
             else
             {
-                return StatusCode(StatusCodes.Status200OK, new { isSuccess = false });
+                
+                return StatusCode(StatusCodes.Status400BadRequest, new { isSuccess = false, message = "No se pudo registrar el usuario en la base de datos." });
             }
         }
 

@@ -1,0 +1,8 @@
+[
+  {
+    "Nombre": "Manolo",
+    "Correo": "manolomontero@hotmail.com",
+    "FechaDeNacimiento": "2014-06-12T20:10:48.586Z",
+    "Clave": "manolo07"
+  }
+]
