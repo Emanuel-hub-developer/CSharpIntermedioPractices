@@ -4,5 +4,29 @@
     "Correo": "manolomontero@hotmail.com",
     "FechaDeNacimiento": "2014-06-12T20:10:48.586Z",
     "Clave": "manolo07"
+  },
+  {
+    "Nombre": "Naruto",
+    "Correo": "narutouzumaki@gmail.com",
+    "FechaDeNacimiento": "2000-03-18T00:49:56.328Z",
+    "Clave": "hinata07"
+  },
+  {
+    "Nombre": "Chavo",
+    "Correo": "chavomoreta@gmail.com",
+    "FechaDeNacimiento": "2001-03-13T02:06:30.436Z",
+    "Clave": "chavo12"
+  },
+  {
+    "Nombre": "Jackson",
+    "Correo": "jacksonsmith@hotmail.com",
+    "FechaDeNacimiento": "2000-03-12T02:19:29.122Z",
+    "Clave": "billie13"
+  },
+  {
+    "Nombre": "Frieren",
+    "Correo": "frierensousou@gmail.com",
+    "FechaDeNacimiento": "2004-03-15T02:27:08.247Z",
+    "Clave": "frieren14"
   }
 ]

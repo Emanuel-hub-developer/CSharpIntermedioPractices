@@ -1,5 +1,6 @@
 ﻿using API_Rest.DTOs;
 using API_Rest.Files;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
@@ -12,6 +13,7 @@ namespace API_Rest.Controllers
     {
         private readonly string filepath = "historialLog.txt";
 
+        [Authorize]
         [HttpGet]
         [Route("obtenerUsuariosDelJson")]
         public async Task<IActionResult> ObtenerUsuariosDelJson()

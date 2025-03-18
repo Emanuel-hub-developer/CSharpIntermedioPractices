@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Authorization;
 
 namespace API_Rest.Controllers
 {
@@ -16,7 +17,7 @@ namespace API_Rest.Controllers
 
         }
 
-
+        [Authorize]
         [HttpGet]
         [Route("obtenerCategorias")]
         public IEnumerable<Models.Categoria> GetCategorias()
@@ -24,7 +25,7 @@ namespace API_Rest.Controllers
             return _context.Categorias.ToList();
         }
 
-
+        [Authorize]
         [HttpPost]
         [Route("crearCategoria")]
         public IActionResult CrearProveedor([FromBody] Models.Categoria nuevaCategoria)
@@ -43,7 +44,7 @@ namespace API_Rest.Controllers
             // Devolver una respuesta exitosa
             return CreatedAtAction(nameof(CrearProveedor), new { id = nuevaCategoria.Id }, nuevaCategoria);
         }
-
+        [Authorize]
         [HttpPut]
         [Route("actualizarCategoria/{id}")]
         public IActionResult ActualizarProveedor(int id, [FromBody] Models.Categoria categoriaActualizada)
@@ -71,6 +72,7 @@ namespace API_Rest.Controllers
             return Ok(categoriaActualizada);
         }
 
+        [Authorize]
         [HttpDelete]
         [Route("eliminarCategoria/{id}")]
         public IActionResult EliminarProveedor(int id)

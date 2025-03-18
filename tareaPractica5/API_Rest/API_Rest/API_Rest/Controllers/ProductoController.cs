@@ -1,5 +1,6 @@
 ﻿using API_Rest.DB;
 using API_Rest.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -18,6 +19,7 @@ namespace API_Rest.Controllers
             _DbAPIRestContext = DbAPIRestContext;
         }
 
+        [Authorize]
         [HttpGet]
         [Route("obtenerProductos")]
         public IEnumerable<Models.Producto> GetProductos()
@@ -25,7 +27,7 @@ namespace API_Rest.Controllers
             return _DbAPIRestContext.Productos.ToList();
         }
 
-
+        [Authorize]
         [HttpPost]
         [Route("crearProducto")]
         public IActionResult CrearProducto([FromBody] DTOs.ProductoDTO nuevoProducto)
@@ -54,6 +56,7 @@ namespace API_Rest.Controllers
             return CreatedAtAction(nameof(CrearProducto), new { id = productoEntidad.Id }, productoEntidad);
         }
 
+        [Authorize]
         [HttpPut]
         [Route("actualizarProducto")]
         public IActionResult ActualizarProducto(int id, [FromBody] DTOs.ProductoDTO productoActualizado)

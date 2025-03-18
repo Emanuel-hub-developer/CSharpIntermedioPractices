@@ -1,4 +1,5 @@
 ﻿using API_Rest.DB;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,6 +17,7 @@ namespace API_Rest.Controllers
         }
 
 
+        [Authorize]
         [HttpGet]
         [Route("obtenerProveedores")]
         public IEnumerable<Models.Proveedor> GetProveedores()
@@ -23,6 +25,7 @@ namespace API_Rest.Controllers
             return _context.Proveedores.ToList();
         }
 
+        [Authorize]
         [HttpPost]
         [Route("crearProveedor")]
         public IActionResult CrearProveedor([FromBody] Models.Proveedor nuevoProveedor)
@@ -42,6 +45,7 @@ namespace API_Rest.Controllers
             return CreatedAtAction(nameof(CrearProveedor), new { id = nuevoProveedor.Id }, nuevoProveedor);
         }
 
+        [Authorize]
         [HttpPut]
         [Route("actualizarProveedor/{id}")]
         public IActionResult ActualizarProveedor(int id, [FromBody] Models.Proveedor proveedorActualizado)
@@ -72,6 +76,7 @@ namespace API_Rest.Controllers
             return Ok(proveedorExistente);
         }
 
+        [Authorize]
         [HttpDelete]
         [Route("eliminarProveedor/{id}")]
         public IActionResult EliminarProveedor(int id)

@@ -1,4 +1,5 @@
 ﻿using API_Rest.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -18,6 +19,7 @@ namespace API_Rest.Controllers
         }
 
 
+        [Authorize]
         [HttpGet]
         [Route("listar")]
         public IEnumerable<Models.Usuario> Get()
@@ -44,7 +46,7 @@ namespace API_Rest.Controllers
         }
 
 
-
+        [Authorize]
         [HttpPost]
         [Route("crearUsuario")]
         public IActionResult GuardarUsuario([FromBody] Models.Usuario nuevoUsuario)
@@ -72,6 +74,7 @@ namespace API_Rest.Controllers
             return CreatedAtAction(nameof(GuardarUsuario), new { id = nuevoUsuario.Id }, nuevoUsuario);
         }
 
+        [Authorize]
         [HttpPut]
         [Route("actualizar/{id}")]
         public IActionResult ActualizarUsuario(int id, [FromBody] Models.Usuario usuarioActualizado)
@@ -110,6 +113,7 @@ namespace API_Rest.Controllers
             return Ok(usuarioExistente);
         }
 
+        [Authorize]
         [HttpDelete]
         [Route("eliminar/{id}")]
         public IActionResult EliminarUsuario(int id)
